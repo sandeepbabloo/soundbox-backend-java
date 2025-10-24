@@ -1,0 +1,68 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: payment-alert-backend
+  
+  # Database Configuration
+  datasource:
+    url: jdbc:h2:mem:paymentalert
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  
+  # JPA Configuration
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  
+  # H2 Console (for development)
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  
+  # Security Configuration
+  security:
+    user:
+      name: admin
+      password: admin123
+
+# PhonePe Configuration
+phonepe:
+  merchant:
+    id: M23VNF8CE5TM4
+    name: SM9 MEDIA
+  environment: sandbox
+  base-url: https://api-preprod.phonepe.com/apis/pg-sandbox
+  salt-key: ${PHONEPE_SALT_KEY:your_salt_key_here}
+  redirect-url: ${PHONEPE_REDIRECT_URL:https://yourdomain.com/api/phonepe/redirect}
+  webhook-url: ${PHONEPE_WEBHOOK_URL:https://yourdomain.com/api/webhook/phonepe}
+
+# Logging Configuration
+logging:
+  level:
+    com.paymentalert: DEBUG
+    org.springframework.web: INFO
+    org.springframework.security: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+# Management endpoints
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
