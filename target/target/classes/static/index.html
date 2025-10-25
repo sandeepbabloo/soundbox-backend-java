@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Alert Backend API</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚨</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🚨 Payment Alert Backend API</h1>
+            <p>Backend service for Payment Alert app with PhonePe integration</p>
+        </header>
+        
+        <div class="status-card">
+            <div class="status-indicator">
+                <span class="status-dot"></span>
+                <span class="status-text">API is running</span>
+            </div>
+            <div class="status-details">
+                <p>Version: <strong>1.0.0</strong></p>
+                <p>Status: <strong class="status-up">UP</strong></p>
+                <p>Last updated: <span id="timestamp"></span></p>
+            </div>
+        </div>
+        
+        <div class="content">
+            <section class="endpoints-section">
+                <h2>📚 API Endpoints</h2>
+                
+                <div class="endpoint-category">
+                    <h3>🔧 System Endpoints</h3>
+                    <div class="endpoint-list">
+                        <div class="endpoint-item">
+                            <code>GET /</code>
+                            <span>Home page with API information</span>
+                        </div>
+                        <div class="endpoint-item">
+                            <code>GET /health</code>
+                            <span>Health check endpoint</span>
+                        </div>
+                        <div class="endpoint-item">
+                            <code>GET /api-docs</code>
+                            <span>API documentation</span>
+                        </div>
+                        <div class="endpoint-item">
+                            <code>GET /welcome</code>
+                            <span>Welcome page</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="endpoint-category">
+                    <h3>💳 PhonePe API</h3>
+                    <div class="endpoint-list">
+                        <div class="endpoint-item">
+                            <code>POST /api/phonepe/payment</code>
+                            <span>Create payment request</span>
+                        </div>
+                        <div class="endpoint-item">
+                            <code>POST /api/phonepe/subscription</code>
+                            <span>Create subscription</span>
+                        </div>
+                        <div class="endpoint-item">
+                            <code>GET /api/phonepe/payment/{id}</code>
+                            <span>Get payment status</span>
+                        </div>
+                        <div class="endpoint-item">
+                            <code>GET /api/phonepe/subscription/{id}</code>
+                            <span>Get subscription details</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="endpoint-category">
+                    <h3>🔗 Webhooks</h3>
+                    <div class="endpoint-list">
+                        <div class="endpoint-item">
+                            <code>POST /webhook/phonepe</code>
+                            <span>PhonePe payment webhook</span>
+                        </div>
+                        <div class="endpoint-item">
+                            <code>POST /webhook/phonepe/renewal</code>
+                            <span>PhonePe renewal webhook</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="features-section">
+                <h2>✨ Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h4>💳 Payment Processing</h4>
+                        <p>Secure payment processing with PhonePe integration</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🔄 Subscription Management</h4>
+                        <p>Automated subscription handling and renewals</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🔗 Webhook Support</h4>
+                        <p>Real-time webhook notifications for payment events</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>📊 Health Monitoring</h4>
+                        <p>Built-in health checks and status monitoring</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <footer class="footer">
+            <p>Payment Alert Backend API v1.0.0</p>
+            <p>Built with Spring Boot & PhonePe Integration</p>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
